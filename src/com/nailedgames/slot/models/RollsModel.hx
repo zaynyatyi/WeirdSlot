@@ -6,15 +6,13 @@ import mmvc.impl.Actor;
  * ...
  * @author Heorhiy Kharvat
  */
-
-class FieldModel extends Actor
+class RollsModel extends Actor
 {
-	@inject public var rollsModel:RollsModel;
-
-	public var isInitialized:Bool = false;
+	public var collection:Array<RollModel>;
 
 	public function new()
 	{
 		super();
+		collection = [];
 	}
 }

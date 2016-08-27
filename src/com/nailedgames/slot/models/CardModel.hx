@@ -1,17 +1,16 @@
 package com.nailedgames.slot.models;
 
+import com.nailedgames.utils.CardElement;
 import mmvc.impl.Actor;
 
 /**
  * ...
  * @author Heorhiy Kharvat
  */
-
-class FieldModel extends Actor
+class CardModel extends Actor
 {
-	@inject public var rollsModel:RollsModel;
-
-	public var isInitialized:Bool = false;
+	public var y:Float;
+	public var cardElement:CardElement;
 
 	public function new()
 	{
