@@ -1,6 +1,8 @@
 -cp src
 
 -lib mmvc:1.6.1
+-lib minject:1.6.1
+-lib msignal:1.2.4
 -lib compiletime:2.6.0
 
 -main com.nailedgames.Main
