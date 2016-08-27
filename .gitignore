@@ -1,2 +1,9 @@
 *.hxproj
-WeirdSlot.js
+
+bin
+!bin/index.html
+
+report
+
+TestMain.hx
+TestSuite.hx
