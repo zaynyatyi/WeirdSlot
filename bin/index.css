@@ -1,0 +1,13 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.FieldView {
+	position: absolute;
+	left: 50%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000;
+	background-color: #aaa;
+}
