@@ -10,6 +10,8 @@ import core.DataView;
  */
 class CardView extends DataView<CardModel>
 {
+	static inline var BORDER_WIDTH:Int = 1;
+
 	public function new(?data:CardModel)
 	{
 		super(data);
@@ -17,8 +19,8 @@ class CardView extends DataView<CardModel>
 
 	override function applyStyle():Void
 	{
-		element.style.width = '${Settings.instance.squareWidth}px';
-		element.style.height = '${Settings.instance.squareHeight}px';
+		element.style.width = '${Settings.instance.squareWidth - BORDER_WIDTH * 2}px';
+		element.style.height = '${Settings.instance.squareHeight - BORDER_WIDTH * 2}px';
 	}
 
 	override function dataChanged()
