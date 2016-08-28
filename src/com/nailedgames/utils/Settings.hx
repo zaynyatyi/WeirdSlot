@@ -54,7 +54,7 @@ class Settings
 
 		initialMoney = 100;
 		minBet = 1;
-		maxBet = 3;
+		maxBet = 10;
 
 		//We are using compiletime macroses to parse our game objects from json file,
 		//and typedef for proper json parsing
