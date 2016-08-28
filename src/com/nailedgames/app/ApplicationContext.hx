@@ -4,12 +4,14 @@ import com.nailedgames.app.ApplicationView;
 import com.nailedgames.app.ApplicationViewMediator;
 import com.nailedgames.slot.commands.InitializeCommand;
 import com.nailedgames.slot.commands.LoopCommand;
+import com.nailedgames.slot.commands.RollCommand;
 import com.nailedgames.slot.models.CardModel;
 import com.nailedgames.slot.models.FieldModel;
 import com.nailedgames.slot.models.RollModel;
 import com.nailedgames.slot.models.RollsModel;
 import com.nailedgames.slot.signals.InitializeSignal;
 import com.nailedgames.slot.signals.LoopSignal;
+import com.nailedgames.slot.signals.RollSignal;
 import com.nailedgames.slot.signals.UpdateFieldSignal;
 import com.nailedgames.slot.views.FieldView;
 import mmvc.api.IViewContainer;
@@ -29,6 +31,7 @@ class ApplicationContext extends Context
 		//Mapping commands and signals
 		commandMap.mapSignalClass(InitializeSignal, InitializeCommand, true);
 		commandMap.mapSignalClass(LoopSignal, LoopCommand);
+		commandMap.mapSignalClass(RollSignal, RollCommand);
 
 		//Mapping models
 		injector.mapSingleton(CardModel);

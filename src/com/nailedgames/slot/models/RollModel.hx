@@ -9,6 +9,8 @@ import mmvc.impl.Actor;
 class RollModel extends Actor
 {
 	public var cards:Array<CardModel>;
+	public var speed:Float = 0;
+	public var iterations:Int = 0;
 
 	public function new()
 	{

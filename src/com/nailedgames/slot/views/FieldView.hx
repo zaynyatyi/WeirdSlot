@@ -1,5 +1,6 @@
 package com.nailedgames.slot.views;
 
+import com.nailedgames.slot.models.RollModel;
 import com.nailedgames.utils.Settings;
 import core.DataView;
 import com.nailedgames.slot.models.FieldModel;
@@ -46,6 +47,18 @@ class FieldView extends DataView<FieldModel>
 					addChild(cardView);
 				}
 				rolls.push(rollRepresentation);
+			}
+		} else {
+			moveCards();
+		}
+	}
+
+	function moveCards():Void
+	{
+		for (rollIndex in 0...data.rollsModel.collection.length) {
+			var rollModel:RollModel = data.rollsModel.collection[rollIndex];
+			for (cardIndex in 0...rollModel.cards.length) {
+				rolls[rollIndex][cardIndex].dataChanged();
 			}
 		}
 	}
