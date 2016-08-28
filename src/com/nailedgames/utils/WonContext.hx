@@ -11,9 +11,11 @@ class WonContext
 {
 	var strategy:WonStrategy;
 
-	public function new()
+	public function new(?isHardcore:Bool)
 	{
-		if (Settings.instance.isHardcore) {
+		var isHardcoreStrategy:Bool = Settings.instance.isHardcore;
+		if (isHardcore != null) isHardcoreStrategy = isHardcore;
+		if (isHardcoreStrategy) {
 			strategy = new ThreeElementsStrategy();
 		} else {
 			strategy = new TwoElementsStrategy();

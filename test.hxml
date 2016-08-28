@@ -2,6 +2,7 @@
 -main TestMain
 -lib munit
 -lib hamcrest
+-lib compiletime:2.6.0
 -cp src
 
 -cp test
