@@ -67,7 +67,7 @@ class ControlsView extends DispatchedView
 		oggSource.src = '${Settings.instance.soundsUrl}/horse.ogg';
 		oggSource.type = "audio/ogg";
 		var mp3Source:SourceElement = Browser.document.createSourceElement();
-		mp3Source.src = '${Settings.instance.soundsUrl}/horse.ogg';
+		mp3Source.src = '${Settings.instance.soundsUrl}/horse.mp3';
 		mp3Source.type = "audio/mpeg";
 
 		sound.appendChild(oggSource);
