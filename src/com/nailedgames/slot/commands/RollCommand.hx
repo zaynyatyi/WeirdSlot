@@ -51,7 +51,11 @@ class RollCommand extends Command
 				modified = true;
 			}
 		}
-		if (modified) updateFieldSignal.dispatch();
+		if (modified) {
+			updateFieldSignal.dispatch();
+		} else {
+			fieldModel.isRolling = false;
+		}
 	}
 
 	function fixPositions(cards:Array<CardModel>, delta:Float) {
