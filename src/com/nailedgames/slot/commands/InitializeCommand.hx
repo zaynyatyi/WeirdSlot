@@ -36,6 +36,7 @@ class InitializeCommand extends Command
 				var card:CardModel = new CardModel();
 				card.cardElement = new CardElement(chunk.assetId);
 				card.x = rollIndex * settings.squareWidth;
+				card.id = chunkIdex;
 				roll.cards.push(card);
 				chunkIdex++;
 			}
