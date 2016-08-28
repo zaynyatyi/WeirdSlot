@@ -36,9 +36,17 @@ class InitializeCommand extends Command
 				var card:CardModel = new CardModel();
 				card.cardElement = new CardElement(chunk.assetId);
 				card.x = rollIndex * settings.squareWidth;
-				card.y = chunkIdex * settings.squareHeight;
 				roll.cards.push(card);
 				chunkIdex++;
+			}
+			//Simple array shuffle
+			roll.cards.sort(function(a:CardModel, b:CardModel):Int
+				{
+					return Std.int(5 - Math.random() * 10);
+				}
+			);
+			for (cardIndex in 0...roll.cards.length) {
+				roll.cards[cardIndex].y = cardIndex * settings.squareHeight;
 			}
 			rollsModel.collection.push(roll);
 		}
