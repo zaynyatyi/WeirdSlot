@@ -1,5 +1,7 @@
 package com.nailedgames.slot.views;
 
+import com.nailedgames.slot.signals.LowerBetSignal;
+import com.nailedgames.slot.signals.RaiseBetSignal;
 import com.nailedgames.slot.signals.StartRollSignal;
 import mmvc.impl.Mediator;
 
@@ -10,6 +12,9 @@ import mmvc.impl.Mediator;
 class ControlsViewMediator extends Mediator<ControlsView>
 {
 	@inject public var startRollSignal:StartRollSignal;
+	@inject public var raiseBetSignal:RaiseBetSignal;
+	@inject public var lowerBetSignal:LowerBetSignal;
+
 	public function new()
 	{
 		super();
@@ -30,9 +35,11 @@ class ControlsViewMediator extends Mediator<ControlsView>
 
 	function handleRaise():Void
 	{
+		raiseBetSignal.dispatch();
 	}
 
 	function handleLower():Void
 	{
+		lowerBetSignal.dispatch();
 	}
 }
