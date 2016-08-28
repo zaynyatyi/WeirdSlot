@@ -20,3 +20,31 @@
 	border-color: #444;
 	background-color: #fff;
 }
+
+.ControlsView {
+	position: absolute;
+	left: 50%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000;
+	background-color: #333;
+}
+
+.ControlButton {
+	position: absolute;
+	height: 50px;
+	width: 100px;
+	top: 20px;
+}
+
+.RollButton {
+	left: 20px;
+}
+
+.RaiseBet {
+	right: 20px;
+}
+
+.LowerBet {
+	right: 140px;
+}

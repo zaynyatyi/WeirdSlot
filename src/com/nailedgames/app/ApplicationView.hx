@@ -1,5 +1,6 @@
 package com.nailedgames.app;
 
+import com.nailedgames.slot.views.ControlsView;
 import com.nailedgames.slot.views.FieldView;
 import core.View;
 import mmvc.api.IViewContainer;
@@ -22,6 +23,8 @@ class ApplicationView extends View implements IViewContainer
 	{
 		var fieldView:FieldView = new FieldView();
 		addChild(fieldView);
+		var controlsView:ControlsView = new ControlsView();
+		addChild(controlsView);
 	}
 
 	/**

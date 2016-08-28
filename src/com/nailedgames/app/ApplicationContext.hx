@@ -13,6 +13,8 @@ import com.nailedgames.slot.signals.InitializeSignal;
 import com.nailedgames.slot.signals.LoopSignal;
 import com.nailedgames.slot.signals.RollSignal;
 import com.nailedgames.slot.signals.UpdateFieldSignal;
+import com.nailedgames.slot.views.ControlsView;
+import com.nailedgames.slot.views.ControlsViewMediator;
 import com.nailedgames.slot.views.FieldView;
 import mmvc.api.IViewContainer;
 import mmvc.impl.Context;
@@ -41,6 +43,7 @@ class ApplicationContext extends Context
 
 		//Mapping views and mediators
 		mediatorMap.mapView(FieldView, FieldViewMediator);
+		mediatorMap.mapView(ControlsView, ControlsViewMediator);
 
 		//Mapping signals which will be used by mediators to update related views
 		injector.mapSingleton(UpdateFieldSignal);
