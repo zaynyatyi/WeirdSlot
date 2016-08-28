@@ -1,22 +1,27 @@
 package com.nailedgames.slot.views;
 import com.nailedgames.utils.Settings;
-import core.View;
+import core.DispatchedView;
 import js.Browser;
 import js.html.ButtonElement;
 import js.html.Document;
+import msignal.Signal.Signal0;
 
 /**
  * ...
  * @author Heorhiy Kharvat
  */
-class ControlsView extends View
+class ControlsView extends DispatchedView
 {
+	public static inline var ROLL_SIGNAL:String = "roll_signal";
+	public static inline var RAISE_SIGNAL:String = "raise_signal";
+	public static inline var LOWER_SIGNAL:String = "lower_signal";
+
 	static inline var CONTROLS_HEIGHT:Int = 100;
 	static inline var DEFAULT_BUTTON_CLASS:String = "ControlButton";
 
 	var rollButton:ButtonElement;
-	var raiseBet:ButtonElement;
-	var lowerBet:ButtonElement;
+	var raiseBetButton:ButtonElement;
+	var lowerBetButton:ButtonElement;
 
 	public function new()
 	{
@@ -27,20 +32,32 @@ class ControlsView extends View
 	{
 		super.initialize();
 		rollButton = Browser.document.createButtonElement();
-		raiseBet = Browser.document.createButtonElement();
-		lowerBet = Browser.document.createButtonElement();
+		raiseBetButton = Browser.document.createButtonElement();
+		lowerBetButton = Browser.document.createButtonElement();
 
 		rollButton.className = '${DEFAULT_BUTTON_CLASS} RollButton';
-		raiseBet.className = '${DEFAULT_BUTTON_CLASS} RaiseBet';
-		lowerBet.className = '${DEFAULT_BUTTON_CLASS} LowerBet';
+		raiseBetButton.className = '${DEFAULT_BUTTON_CLASS} RaiseBet';
+		lowerBetButton.className = '${DEFAULT_BUTTON_CLASS} LowerBet';
 
 		rollButton.textContent = "Roll";
-		raiseBet.textContent = "Raise Bet";
-		lowerBet.textContent = "Lower Bet";
+		raiseBetButton.textContent = "Raise Bet";
+		lowerBetButton.textContent = "Lower Bet";
 
 		element.appendChild(rollButton);
-		element.appendChild(raiseBet);
-		element.appendChild(lowerBet);
+		element.appendChild(raiseBetButton);
+		element.appendChild(lowerBetButton);
+
+		rollButton.onclick = handleRollClicked;
+		raiseBetButton.onclick = handleRaiseClicked;
+		lowerBetButton.onclick = handleLowerClicked;
+	}
+
+	override function initializeSignals():Void
+	{
+		super.initializeSignals();
+		signals.set(ROLL_SIGNAL, new Signal0());
+		signals.set(RAISE_SIGNAL, new Signal0());
+		signals.set(LOWER_SIGNAL, new Signal0());
 	}
 
 	override function applyStyle():Void
@@ -53,5 +70,28 @@ class ControlsView extends View
 		element.style.top = '${fieldHeight}px';
 
 		element.style.marginLeft = '${-fieldWidth / 2}px';
+	}
+
+	override function remove()
+	{
+		super.remove();
+		rollButton.onclick = null;
+		raiseBetButton.onclick = null;
+		lowerBetButton.onclick = null;
+	}
+
+	function handleRollClicked():Void
+	{
+		signals.get(ROLL_SIGNAL).dispatch();
+	}
+
+	function handleRaiseClicked():Void
+	{
+		signals.get(RAISE_SIGNAL).dispatch();
+	}
+
+	function handleLowerClicked():Void
+	{
+		signals.get(LOWER_SIGNAL).dispatch();
 	}
 }
