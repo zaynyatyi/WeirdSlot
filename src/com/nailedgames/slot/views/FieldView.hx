@@ -27,8 +27,9 @@ class FieldView extends DataView<FieldModel>
 
 	override function applyStyle():Void
 	{
-		var fieldWidth = Settings.instance.fieldColumns * Settings.instance.squareWidth;
-		var fieldHeight = Settings.instance.fieldRows * Settings.instance.squareHeight;
+		var settings:Settings = Settings.instance;
+		var fieldWidth = settings.fieldColumns * settings.squareWidth;
+		var fieldHeight = settings.fieldRows * settings.squareHeight;
 		element.style.width = '${fieldWidth}px';
 		element.style.height = '${fieldHeight}px';
 
