@@ -15,6 +15,7 @@ class ControlsView extends DispatchedView
 	public static inline var ROLL_SIGNAL:String = "roll_signal";
 	public static inline var RAISE_SIGNAL:String = "raise_signal";
 	public static inline var LOWER_SIGNAL:String = "lower_signal";
+	public static inline var DENIED_SIGNAL:String = "denied_signal";
 
 	static inline var CONTROLS_HEIGHT:Int = 100;
 	static inline var DEFAULT_BUTTON_CLASS:String = "ControlButton";
@@ -22,6 +23,7 @@ class ControlsView extends DispatchedView
 	var rollButton:ButtonElement;
 	var raiseBetButton:ButtonElement;
 	var lowerBetButton:ButtonElement;
+	var deniedButton:ButtonElement;
 
 	public function new()
 	{
@@ -50,6 +52,12 @@ class ControlsView extends DispatchedView
 		rollButton.onclick = handleRollClicked;
 		raiseBetButton.onclick = handleRaiseClicked;
 		lowerBetButton.onclick = handleLowerClicked;
+
+		deniedButton = Browser.document.createButtonElement();
+		deniedButton.className = '${DEFAULT_BUTTON_CLASS} DeniedButton';
+		deniedButton.textContent = "Don't ever Touch";
+		element.appendChild(deniedButton);
+		deniedButton.onclick = handleDeniedClicked;
 	}
 
 	override function initializeSignals():Void
@@ -58,6 +66,7 @@ class ControlsView extends DispatchedView
 		signals.set(ROLL_SIGNAL, new Signal0());
 		signals.set(RAISE_SIGNAL, new Signal0());
 		signals.set(LOWER_SIGNAL, new Signal0());
+		signals.set(DENIED_SIGNAL, new Signal0());
 	}
 
 	override function applyStyle():Void
@@ -93,5 +102,11 @@ class ControlsView extends DispatchedView
 	function handleLowerClicked():Void
 	{
 		signals.get(LOWER_SIGNAL).dispatch();
+	}
+
+	function handleDeniedClicked():Void
+	{
+		Browser.alert("Didn't i told you?\nNow restart and get a bit more money!");
+		signals.get(DENIED_SIGNAL).dispatch();
 	}
 }

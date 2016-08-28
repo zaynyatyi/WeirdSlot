@@ -49,6 +49,12 @@
 	right: 140px;
 }
 
+.DeniedButton {
+	right: 270px;
+	background-color: #f00;
+	color: #fff;
+}
+
 .PlayerStateView {
 	position: absolute;
 	left: 50%;
