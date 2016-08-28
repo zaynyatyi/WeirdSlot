@@ -1,5 +1,6 @@
 package com.nailedgames.slot.views;
 
+import com.nailedgames.slot.signals.StartRollSignal;
 import mmvc.impl.Mediator;
 
 /**
@@ -8,6 +9,7 @@ import mmvc.impl.Mediator;
  */
 class ControlsViewMediator extends Mediator<ControlsView>
 {
+	@inject public var startRollSignal:StartRollSignal;
 	public function new()
 	{
 		super();
@@ -23,6 +25,7 @@ class ControlsViewMediator extends Mediator<ControlsView>
 
 	function handleRoll():Void
 	{
+		startRollSignal.dispatch();
 	}
 
 	function handleRaise():Void

@@ -5,6 +5,7 @@ import com.nailedgames.app.ApplicationViewMediator;
 import com.nailedgames.slot.commands.InitializeCommand;
 import com.nailedgames.slot.commands.LoopCommand;
 import com.nailedgames.slot.commands.RollCommand;
+import com.nailedgames.slot.commands.StartRollCommand;
 import com.nailedgames.slot.models.CardModel;
 import com.nailedgames.slot.models.FieldModel;
 import com.nailedgames.slot.models.RollModel;
@@ -12,6 +13,7 @@ import com.nailedgames.slot.models.RollsModel;
 import com.nailedgames.slot.signals.InitializeSignal;
 import com.nailedgames.slot.signals.LoopSignal;
 import com.nailedgames.slot.signals.RollSignal;
+import com.nailedgames.slot.signals.StartRollSignal;
 import com.nailedgames.slot.signals.UpdateFieldSignal;
 import com.nailedgames.slot.views.ControlsView;
 import com.nailedgames.slot.views.ControlsViewMediator;
@@ -34,6 +36,7 @@ class ApplicationContext extends Context
 		commandMap.mapSignalClass(InitializeSignal, InitializeCommand, true);
 		commandMap.mapSignalClass(LoopSignal, LoopCommand);
 		commandMap.mapSignalClass(RollSignal, RollCommand);
+		commandMap.mapSignalClass(StartRollSignal, StartRollCommand);
 
 		//Mapping models
 		injector.mapSingleton(CardModel);
