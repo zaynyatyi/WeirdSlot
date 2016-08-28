@@ -46,7 +46,7 @@ class Settings
 		minSpeed = 10;
 		maxSpeed = 50;
 		minIterations = 20;
-		maxIterations = 50;
+		maxIterations = 30;
 
 		//We are using compiletime macroses to parse our game objects from json file,
 		//and typedef for proper json parsing
