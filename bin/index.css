@@ -48,3 +48,24 @@
 .LowerBet {
 	right: 140px;
 }
+
+.PlayerStateView {
+	position: absolute;
+	left: 50%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #f27;
+	background-color: #eee;
+}
+
+.CashText {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+
+.BetText {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}

@@ -2,9 +2,11 @@ package com.nailedgames.slot.commands;
 
 import com.nailedgames.slot.models.CardModel;
 import com.nailedgames.slot.models.FieldModel;
+import com.nailedgames.slot.models.PlayerStateModel;
 import com.nailedgames.slot.models.RollModel;
 import com.nailedgames.slot.models.RollsModel;
 import com.nailedgames.slot.signals.UpdateFieldSignal;
+import com.nailedgames.slot.signals.UpdatePlayerSignal;
 import com.nailedgames.utils.CardElement;
 import com.nailedgames.utils.Settings;
 import mmvc.impl.Command;
@@ -16,8 +18,10 @@ import mmvc.impl.Command;
 class InitializeCommand extends Command
 {
 	@inject public var updateFieldSignal:UpdateFieldSignal;
+	@inject public var updatePlayerSignal:UpdatePlayerSignal;
 	@inject public var fieldModel:FieldModel;
 	@inject public var rollsModel:RollsModel;
+	@inject public var playerStateModel:PlayerStateModel;
 
 	public function new()
 	{
@@ -53,5 +57,9 @@ class InitializeCommand extends Command
 		}
 		fieldModel.isInitialized = true;
 		updateFieldSignal.dispatch();
+
+		playerStateModel.cash = settings.initialMoney;
+		playerStateModel.bet = settings.minBet;
+		updatePlayerSignal.dispatch();
 	}
 }
