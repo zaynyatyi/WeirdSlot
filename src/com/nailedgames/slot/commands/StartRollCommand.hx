@@ -23,6 +23,7 @@ class StartRollCommand extends Command
 		super.execute();
 		if (!fieldModel.isRolling && (playeStateModel.cash - playeStateModel.bet) >= 0) {
 			fieldModel.isRolling = true;
+			fieldModel.isChecked = false;
 			var settings:Settings = Settings.instance;
 			playeStateModel.cash -= playeStateModel.bet;
 			for (rollModel in fieldModel.rollsModel.collection) {

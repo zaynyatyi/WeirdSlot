@@ -3,6 +3,7 @@ package com.nailedgames.slot.commands;
 import com.nailedgames.slot.models.CardModel;
 import com.nailedgames.slot.models.FieldModel;
 import com.nailedgames.slot.models.RollModel;
+import com.nailedgames.slot.signals.CheckWonSignal;
 import com.nailedgames.slot.signals.UpdateFieldSignal;
 import com.nailedgames.utils.Settings;
 import mmvc.impl.Command;
@@ -11,6 +12,7 @@ class RollCommand extends Command
 {
 	@inject public var fieldModel:FieldModel;
 	@inject public var updateFieldSignal:UpdateFieldSignal;
+	@inject public var checkWonSignal:CheckWonSignal;
 
 	public function new()
 	{
@@ -55,6 +57,10 @@ class RollCommand extends Command
 			updateFieldSignal.dispatch();
 		} else {
 			fieldModel.isRolling = false;
+			if (!fieldModel.isChecked) {
+				checkWonSignal.dispatch();
+				fieldModel.isChecked = true;
+			}
 		}
 	}
 

@@ -28,8 +28,11 @@ class Settings
 	public var maxIterations(default, null):Int;
 
 	public var initialMoney(default, null):Int;
+	public var maxMoney(default, null):Int;
 	public var minBet(default, null):Int;
 	public var maxBet(default, null):Int;
+
+	public var isHardcore(default, null):Bool;
 
 	//Private constructor, so we can create instance of class just using static instance getter
 	function new()
@@ -53,8 +56,11 @@ class Settings
 		maxIterations = 30;
 
 		initialMoney = 100;
+		maxMoney = 100500;
 		minBet = 1;
 		maxBet = 10;
+
+		isHardcore = false;
 
 		//We are using compiletime macroses to parse our game objects from json file,
 		//and typedef for proper json parsing

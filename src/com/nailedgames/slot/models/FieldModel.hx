@@ -13,6 +13,7 @@ class FieldModel extends Actor
 
 	public var isInitialized:Bool = false;
 	public var isRolling:Bool = false;
+	public var isChecked:Bool = true;
 
 	public function new()
 	{
