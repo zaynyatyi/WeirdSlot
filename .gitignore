@@ -3,6 +3,7 @@
 bin
 !bin/index.html
 !bin/index.css
+!bin/*.png
 
 report
 

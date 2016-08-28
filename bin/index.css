@@ -10,4 +10,13 @@
 	border-style: solid;
 	border-color: #000;
 	background-color: #aaa;
+	overflow: hidden;
+}
+
+.CardView {
+	position: absolute;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #444;
+	background-color: #fff;
 }

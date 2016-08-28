@@ -9,6 +9,7 @@ import mmvc.impl.Actor;
  */
 class CardModel extends Actor
 {
+	public var x:Float;
 	public var y:Float;
 	public var cardElement:CardElement;
 

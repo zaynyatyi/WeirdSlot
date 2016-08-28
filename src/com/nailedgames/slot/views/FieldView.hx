@@ -11,9 +11,12 @@ import com.nailedgames.slot.models.FieldModel;
 
 class FieldView extends DataView<FieldModel>
 {
+	var rolls:Array<RollRepresentations>;
+
 	public function new(?data:FieldModel)
 	{
 		super(data);
+		rolls = [];
 	}
 
 	override function initialize()
@@ -34,5 +37,18 @@ class FieldView extends DataView<FieldModel>
 	override function dataChanged()
 	{
 		super.dataChanged();
+		if (rolls.length != data.rollsModel.collection.length) {
+			for (rollModel in data.rollsModel.collection) {
+				var rollRepresentation:RollRepresentations = [];
+				for (cardModel in rollModel.cards) {
+					var cardView:CardView = new CardView(cardModel);
+					rollRepresentation.push(cardView);
+					addChild(cardView);
+				}
+				rolls.push(rollRepresentation);
+			}
+		}
 	}
 }
+
+private typedef RollRepresentations = Array<CardView>;
