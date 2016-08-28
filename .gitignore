@@ -3,7 +3,9 @@
 bin
 !bin/index.html
 !bin/index.css
-!bin/*.png
+!bin/assets/*.png
+!bin/assets/*.ogg
+!bin/assets/*.mp3
 
 report
 

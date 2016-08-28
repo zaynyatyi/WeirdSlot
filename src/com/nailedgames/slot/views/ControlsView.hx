@@ -2,8 +2,10 @@ package com.nailedgames.slot.views;
 import com.nailedgames.utils.Settings;
 import core.DispatchedView;
 import js.Browser;
+import js.html.AudioElement;
 import js.html.ButtonElement;
 import js.html.Document;
+import js.html.SourceElement;
 import msignal.Signal.Signal0;
 
 /**
@@ -24,6 +26,7 @@ class ControlsView extends DispatchedView
 	var raiseBetButton:ButtonElement;
 	var lowerBetButton:ButtonElement;
 	var deniedButton:ButtonElement;
+	var sound:AudioElement;
 
 	public function new()
 	{
@@ -58,6 +61,17 @@ class ControlsView extends DispatchedView
 		deniedButton.textContent = "Don't ever Touch";
 		element.appendChild(deniedButton);
 		deniedButton.onclick = handleDeniedClicked;
+
+		sound = Browser.document.createAudioElement();
+		var oggSource:SourceElement = Browser.document.createSourceElement();
+		oggSource.src = '${Settings.instance.soundsUrl}/horse.ogg';
+		oggSource.type = "audio/ogg";
+		var mp3Source:SourceElement = Browser.document.createSourceElement();
+		mp3Source.src = '${Settings.instance.soundsUrl}/horse.ogg';
+		mp3Source.type = "audio/mpeg";
+
+		sound.appendChild(oggSource);
+		sound.appendChild(mp3Source);
 	}
 
 	override function initializeSignals():Void
@@ -92,6 +106,7 @@ class ControlsView extends DispatchedView
 	function handleRollClicked():Void
 	{
 		signals.get(ROLL_SIGNAL).dispatch();
+		sound.play();
 	}
 
 	function handleRaiseClicked():Void

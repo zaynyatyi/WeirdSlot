@@ -11,6 +11,6 @@ abstract CardElement(String)
 	}
 
 	public inline function getUrl():String {
-		return '${Settings.instance.assetsUrl}/${this}.png';
+		return '${Settings.instance.imagesUrl}/${this}.png';
 	}
 }

@@ -20,7 +20,8 @@ class Settings
 
 	public var chunksCollection(default, null):ChunksCollection;
 
-	public var assetsUrl:String;
+	public var imagesUrl:String;
+	public var soundsUrl:String;
 
 	public var minSpeed(default, null):Int;
 	public var maxSpeed(default, null):Int;
@@ -72,7 +73,8 @@ class Settings
 		chunksCollection = CompileTime.parseJsonFile("assets/chunks.json");
 		#end
 
-		assetsUrl = "assets/images/";
+		imagesUrl = "assets/images/";
+		soundsUrl = "assets/sounds/";
 	}
 
 	static function get_instance():Settings
