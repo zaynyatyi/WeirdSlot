@@ -20,6 +20,8 @@ class StartRollCommand extends Command
 		var settings:Settings = Settings.instance;
 		for (rollModel in fieldModel.rollsModel.collection) {
 			rollModel.speed = settings.minSpeed + Math.random() * (settings.maxSpeed - settings.minSpeed);
+			var iterationsDelta:Int = settings.maxIterations - settings.minIterations;
+			rollModel.iterations = Std.int(settings.minIterations + Math.random() * iterationsDelta);
 		}
 	}
 }

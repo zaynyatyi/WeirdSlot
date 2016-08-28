@@ -28,6 +28,10 @@ class RollCommand extends Command
 					}
 					cardModel.y += rollModel.speed;
 				}
+				rollModel.iterations--;
+				if (rollModel.iterations == 0) {
+					rollModel.speed = 0;
+				}
 				modified = true;
 			}
 		}
